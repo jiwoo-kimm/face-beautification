@@ -43,6 +43,10 @@ for f in glob.glob(os.path.join(faces_folder_path, "*.jpg")):
         print("Part 0: {}, Part 1: {} ...".format(shape.part(0),
                                                   shape.part(1)))
 
+        for j in range(68):
+            x, y = shape.part(j).x, shape.part(j).y
+            win.add_overlay_circle(dlib.point(x, y), 1, dlib.rgb_pixel(0, 0, 255))
+
         win.add_overlay(shape)
 
     win.add_overlay(dets)
